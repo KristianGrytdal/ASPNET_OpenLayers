@@ -1,0 +1,6 @@
+@VectorTilesASPNET_Test_HostAddress = http://localhost:5196
+
+GET {{VectorTilesASPNET_Test_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
