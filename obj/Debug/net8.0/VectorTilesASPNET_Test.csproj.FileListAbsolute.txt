@@ -34,3 +34,4 @@ C:\Users\Kristian\Documents\BachelorProsjekt\VectorTilesASPNET_Test\obj\Debug\ne
 C:\Users\Kristian\Documents\BachelorProsjekt\VectorTilesASPNET_Test\bin\Debug\net8.0\Microsoft.Extensions.DependencyInjection.Abstractions.dll
 C:\Users\Kristian\Documents\BachelorProsjekt\VectorTilesASPNET_Test\bin\Debug\net8.0\Microsoft.Extensions.Logging.Abstractions.dll
 C:\Users\Kristian\Documents\BachelorProsjekt\VectorTilesASPNET_Test\bin\Debug\net8.0\Npgsql.dll
+C:\Users\Kristian\Documents\BachelorProsjekt\VectorTilesASPNET_Test\obj\Debug\net8.0\VectorTilesASPNET_Test.sourcelink.json
