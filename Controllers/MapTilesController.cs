@@ -13,7 +13,7 @@ namespace VectorTilesASPNET_Test.Controllers
     {
         private readonly IConfiguration _configuration;
         private readonly ILogger<MapTilesController> _logger;
-        private static List<object> _cachedSchemas; // ✅ Caching schemas in memory
+        private static List<object> _cachedSchemas;
 
         public MapTilesController(IConfiguration configuration, ILogger<MapTilesController> logger)
         {
@@ -37,7 +37,7 @@ namespace VectorTilesASPNET_Test.Controllers
                 using var conn = new NpgsqlConnection(connectionString);
                 conn.Open();
 
-                string sqlQuery = "SELECT schema_name, min_zoom, max_zoom FROM public.available_schemas_with_zoom"; // ✅ Ensure table exists
+                string sqlQuery = "SELECT schema_name, min_zoom, max_zoom FROM public.available_schemas_with_zoom";
 
                 using var cmd = new NpgsqlCommand(sqlQuery, conn);
                 using var reader = cmd.ExecuteReader();
@@ -52,11 +52,11 @@ namespace VectorTilesASPNET_Test.Controllers
                     });
                 }
 
-                _logger.LogInformation("✅ Database Response: {@schemas}", schemas); // ✅ Log fetched data
+                _logger.LogInformation("✅ Database Response: {@schemas}", schemas);
             }
             catch (Exception ex)
             {
-                _logger.LogError("❌ Error loading schemas from database: {Message}", ex.Message);
+                _logger.LogError("Error loading schemas from database: {Message}", ex.Message);
             }
 
             return schemas;
