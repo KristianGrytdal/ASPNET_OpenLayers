@@ -14,7 +14,7 @@ builder.Services.AddCors(options =>
             policy.WithOrigins("http://localhost:3000") // ✅ Replace with your React frontend URL
                 .AllowAnyHeader()
                 .AllowAnyMethod()
-                .AllowCredentials(); // ✅ Allows cookies, auth tokens if needed
+                .AllowCredentials();
         });
 });
 

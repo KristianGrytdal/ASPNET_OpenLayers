@@ -35,3 +35,40 @@ C:\Users\Kristian\Documents\BachelorProsjekt\VectorTilesASPNET_Test\bin\Debug\ne
 C:\Users\Kristian\Documents\BachelorProsjekt\VectorTilesASPNET_Test\bin\Debug\net8.0\Microsoft.Extensions.Logging.Abstractions.dll
 C:\Users\Kristian\Documents\BachelorProsjekt\VectorTilesASPNET_Test\bin\Debug\net8.0\Npgsql.dll
 C:\Users\Kristian\Documents\BachelorProsjekt\VectorTilesASPNET_Test\obj\Debug\net8.0\VectorTilesASPNET_Test.sourcelink.json
+C:\Users\X1 Carbon 7 Gen\RiderProjects\ASPNET_OpenLayers\bin\Debug\net8.0\appsettings.Development.json
+C:\Users\X1 Carbon 7 Gen\RiderProjects\ASPNET_OpenLayers\bin\Debug\net8.0\appsettings.json
+C:\Users\X1 Carbon 7 Gen\RiderProjects\ASPNET_OpenLayers\bin\Debug\net8.0\VectorTilesASPNET_Test.exe
+C:\Users\X1 Carbon 7 Gen\RiderProjects\ASPNET_OpenLayers\bin\Debug\net8.0\VectorTilesASPNET_Test.deps.json
+C:\Users\X1 Carbon 7 Gen\RiderProjects\ASPNET_OpenLayers\bin\Debug\net8.0\VectorTilesASPNET_Test.runtimeconfig.json
+C:\Users\X1 Carbon 7 Gen\RiderProjects\ASPNET_OpenLayers\bin\Debug\net8.0\VectorTilesASPNET_Test.dll
+C:\Users\X1 Carbon 7 Gen\RiderProjects\ASPNET_OpenLayers\bin\Debug\net8.0\VectorTilesASPNET_Test.pdb
+C:\Users\X1 Carbon 7 Gen\RiderProjects\ASPNET_OpenLayers\bin\Debug\net8.0\Microsoft.AspNetCore.OpenApi.dll
+C:\Users\X1 Carbon 7 Gen\RiderProjects\ASPNET_OpenLayers\bin\Debug\net8.0\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+C:\Users\X1 Carbon 7 Gen\RiderProjects\ASPNET_OpenLayers\bin\Debug\net8.0\Microsoft.Extensions.Logging.Abstractions.dll
+C:\Users\X1 Carbon 7 Gen\RiderProjects\ASPNET_OpenLayers\bin\Debug\net8.0\Microsoft.OpenApi.dll
+C:\Users\X1 Carbon 7 Gen\RiderProjects\ASPNET_OpenLayers\bin\Debug\net8.0\Npgsql.dll
+C:\Users\X1 Carbon 7 Gen\RiderProjects\ASPNET_OpenLayers\bin\Debug\net8.0\Swashbuckle.AspNetCore.Swagger.dll
+C:\Users\X1 Carbon 7 Gen\RiderProjects\ASPNET_OpenLayers\bin\Debug\net8.0\Swashbuckle.AspNetCore.SwaggerGen.dll
+C:\Users\X1 Carbon 7 Gen\RiderProjects\ASPNET_OpenLayers\bin\Debug\net8.0\Swashbuckle.AspNetCore.SwaggerUI.dll
+C:\Users\X1 Carbon 7 Gen\RiderProjects\ASPNET_OpenLayers\obj\Debug\net8.0\VectorTilesASPNET_Test.csproj.AssemblyReference.cache
+C:\Users\X1 Carbon 7 Gen\RiderProjects\ASPNET_OpenLayers\obj\Debug\net8.0\VectorTilesASPNET_Test.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\X1 Carbon 7 Gen\RiderProjects\ASPNET_OpenLayers\obj\Debug\net8.0\VectorTilesASPNET_Test.AssemblyInfoInputs.cache
+C:\Users\X1 Carbon 7 Gen\RiderProjects\ASPNET_OpenLayers\obj\Debug\net8.0\VectorTilesASPNET_Test.AssemblyInfo.cs
+C:\Users\X1 Carbon 7 Gen\RiderProjects\ASPNET_OpenLayers\obj\Debug\net8.0\VectorTilesASPNET_Test.csproj.CoreCompileInputs.cache
+C:\Users\X1 Carbon 7 Gen\RiderProjects\ASPNET_OpenLayers\obj\Debug\net8.0\VectorTilesASPNET_Test.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\X1 Carbon 7 Gen\RiderProjects\ASPNET_OpenLayers\obj\Debug\net8.0\VectorTilesASPNET_Test.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\X1 Carbon 7 Gen\RiderProjects\ASPNET_OpenLayers\obj\Debug\net8.0\VectorTilesASPNET_Test.sourcelink.json
+C:\Users\X1 Carbon 7 Gen\RiderProjects\ASPNET_OpenLayers\obj\Debug\net8.0\staticwebassets.build.json
+C:\Users\X1 Carbon 7 Gen\RiderProjects\ASPNET_OpenLayers\obj\Debug\net8.0\staticwebassets.development.json
+C:\Users\X1 Carbon 7 Gen\RiderProjects\ASPNET_OpenLayers\obj\Debug\net8.0\staticwebassets\msbuild.VectorTilesASPNET_Test.Microsoft.AspNetCore.StaticWebAssets.props
+C:\Users\X1 Carbon 7 Gen\RiderProjects\ASPNET_OpenLayers\obj\Debug\net8.0\staticwebassets\msbuild.build.VectorTilesASPNET_Test.props
+C:\Users\X1 Carbon 7 Gen\RiderProjects\ASPNET_OpenLayers\obj\Debug\net8.0\staticwebassets\msbuild.buildMultiTargeting.VectorTilesASPNET_Test.props
+C:\Users\X1 Carbon 7 Gen\RiderProjects\ASPNET_OpenLayers\obj\Debug\net8.0\staticwebassets\msbuild.buildTransitive.VectorTilesASPNET_Test.props
+C:\Users\X1 Carbon 7 Gen\RiderProjects\ASPNET_OpenLayers\obj\Debug\net8.0\staticwebassets.pack.json
+C:\Users\X1 Carbon 7 Gen\RiderProjects\ASPNET_OpenLayers\obj\Debug\net8.0\scopedcss\bundle\VectorTilesASPNET_Test.styles.css
+C:\Users\X1 Carbon 7 Gen\RiderProjects\ASPNET_OpenLayers\obj\Debug\net8.0\VectorTi.694DD10A.Up2Date
+C:\Users\X1 Carbon 7 Gen\RiderProjects\ASPNET_OpenLayers\obj\Debug\net8.0\VectorTilesASPNET_Test.dll
+C:\Users\X1 Carbon 7 Gen\RiderProjects\ASPNET_OpenLayers\obj\Debug\net8.0\refint\VectorTilesASPNET_Test.dll
+C:\Users\X1 Carbon 7 Gen\RiderProjects\ASPNET_OpenLayers\obj\Debug\net8.0\VectorTilesASPNET_Test.pdb
+C:\Users\X1 Carbon 7 Gen\RiderProjects\ASPNET_OpenLayers\obj\Debug\net8.0\VectorTilesASPNET_Test.genruntimeconfig.cache
+C:\Users\X1 Carbon 7 Gen\RiderProjects\ASPNET_OpenLayers\obj\Debug\net8.0\ref\VectorTilesASPNET_Test.dll

@@ -634,24 +634,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Kristian\\.nuget\\packages\\": {},
-    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
+    "C:\\Users\\X1 Carbon 7 Gen\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Kristian\\Documents\\BachelorProsjekt\\VectorTilesASPNET_Test\\VectorTilesASPNET_Test.csproj",
+      "projectUniqueName": "C:\\Users\\X1 Carbon 7 Gen\\RiderProjects\\ASPNET_OpenLayers\\VectorTilesASPNET_Test.csproj",
       "projectName": "VectorTilesASPNET_Test",
-      "projectPath": "C:\\Users\\Kristian\\Documents\\BachelorProsjekt\\VectorTilesASPNET_Test\\VectorTilesASPNET_Test.csproj",
-      "packagesPath": "C:\\Users\\Kristian\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Kristian\\Documents\\BachelorProsjekt\\VectorTilesASPNET_Test\\obj\\",
+      "projectPath": "C:\\Users\\X1 Carbon 7 Gen\\RiderProjects\\ASPNET_OpenLayers\\VectorTilesASPNET_Test.csproj",
+      "packagesPath": "C:\\Users\\X1 Carbon 7 Gen\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\X1 Carbon 7 Gen\\RiderProjects\\ASPNET_OpenLayers\\obj\\",
       "projectStyle": "PackageReference",
-      "fallbackFolders": [
-        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-      ],
       "configFilePaths": [
-        "C:\\Users\\Kristian\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config"
+        "C:\\Users\\X1 Carbon 7 Gen\\AppData\\Roaming\\NuGet\\NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net8.0"
@@ -712,7 +707,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.401/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.407/PortableRuntimeIdentifierGraph.json"
       }
     }
   }
