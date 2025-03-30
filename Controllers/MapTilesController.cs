@@ -181,7 +181,7 @@ namespace VectorTilesASPNET_Test.Controllers
                         {
                             schema,
                             tileKey,
-                            url = $"/tiles/{tileKey}/{{z}}/{{x}}/{{y}}"
+                            url = $"/{tileKey}/{{z}}/{{x}}/{{y}}"
                         };
                     }
                 }
