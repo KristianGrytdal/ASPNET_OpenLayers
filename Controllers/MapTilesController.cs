@@ -39,7 +39,10 @@ namespace VectorTilesASPNET_Test.Controllers
                 using var conn = new NpgsqlConnection(connectionString);
                 conn.Open();
 
-                string sqlQuery = "SELECT schema_name, min_zoom, max_zoom FROM public.available_schemas_with_zoom";
+                string sqlQuery = @"
+            SELECT schema_name, min_zoom, max_zoom, prefetch_priority 
+            FROM public.available_schemas_with_zoom
+            ORDER BY prefetch_priority DESC";
 
                 using var cmd = new NpgsqlCommand(sqlQuery, conn);
                 using var reader = cmd.ExecuteReader();
@@ -50,11 +53,12 @@ namespace VectorTilesASPNET_Test.Controllers
                     {
                         schema_name = reader.GetString(0),
                         minZoom = reader.GetDouble(1),
-                        maxZoom = reader.GetDouble(2)
+                        maxZoom = reader.GetDouble(2),
+                        prefetchPriority = reader.GetInt32(3)
                     });
                 }
 
-                _logger.LogInformation("Database Response: {@schemas}", schemas);
+                _logger.LogInformation("Database Response with priority: {@schemas}", schemas);
             }
             catch (Exception ex)
             {
@@ -63,6 +67,7 @@ namespace VectorTilesASPNET_Test.Controllers
 
             return schemas;
         }
+
 
         [HttpGet("schemas")]
         public IActionResult GetAvailableSchemas()
