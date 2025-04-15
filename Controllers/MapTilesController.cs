@@ -2,6 +2,8 @@
 using Npgsql;
 using System;
 using System.Collections.Generic;
+using System.Data;
+using System.Globalization;
 using System.Text.Json;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
@@ -129,7 +131,7 @@ namespace VectorTilesASPNET_Test.Controllers
                 }
                 else
                 {
-                    _logger.LogInformation("✅ Returning cached catalog for zoom {Zoom}", roundedZoom);
+                    _logger.LogInformation("Returning cached catalog for zoom {Zoom}", roundedZoom);
                 }
 
                 // Only start background fetching if triggered by toggle
@@ -144,7 +146,7 @@ namespace VectorTilesASPNET_Test.Controllers
                                 double zKey = Math.Round(z, 1);
                                 if (!_filteredCatalogCache.ContainsKey(zKey))
                                 {
-                                    _logger.LogInformation("⏳ (Async) Building catalog for nearby zoom {Zoom}...", zKey);
+                                    _logger.LogInformation("(Async) Building catalog for nearby zoom {Zoom}...", zKey);
                                     var cat = await BuildCatalogForZoom(zKey);
                                     _filteredCatalogCache[zKey] = cat;
                                 }
@@ -153,12 +155,12 @@ namespace VectorTilesASPNET_Test.Controllers
                     });
                 }
                 
-                _logger.LogInformation("📦 Catalog for zoom {Zoom} includes: {Keys}", roundedZoom, string.Join(", ", catalog.Keys));
+                _logger.LogInformation("Catalog for zoom {Zoom} includes: {Keys}", roundedZoom, string.Join(", ", catalog.Keys));
                 return Ok(new { tiles = catalog });
             }
             catch (Exception ex)
             {
-                _logger.LogError(ex, "🔥 Error in GetFilteredCatalog");
+                _logger.LogError(ex, "Error in GetFilteredCatalog");
                 return StatusCode(500, new { error = "Internal Server Error", details = ex.Message });
             }
         }
@@ -211,8 +213,132 @@ namespace VectorTilesASPNET_Test.Controllers
                 }
             }
 
-            _logger.LogInformation("📦 Catalog built for zoom {Zoom} with entries: {Keys}", zoom, string.Join(", ", simplifiedCatalog.Keys));
+            _logger.LogInformation("Catalog built for zoom {Zoom} with entries: {Keys}", zoom, string.Join(", ", simplifiedCatalog.Keys));
             return simplifiedCatalog;
         }
+    }
+    [Route("api/search")]
+    public class SearchController : ControllerBase
+    {
+        private readonly IConfiguration _configuration;
+        private readonly ILogger<SearchController> _logger;
+
+        public SearchController(IConfiguration configuration, ILogger<SearchController> logger)
+        {
+            _configuration = configuration;
+            _logger = logger;
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> Search([FromQuery] string q)
+        {
+            if (string.IsNullOrWhiteSpace(q)) return BadRequest("Query cannot be empty");
+
+            // Check if input looks like coordinates
+            if (TryParseCoordinates(q, out double lon, out double lat))
+            {
+                return Ok(new { type = "coordinate", lon, lat });
+            }
+
+            // Fallback to placename search
+            var result = await SearchPlaceName(q);
+            return result != null
+                ? Ok(new { type = "placename", name = result.Name, lon = result.Lon, lat = result.Lat })
+                : NotFound("No match found");
+        }
+
+        private bool TryParseCoordinates(string input, out double lon, out double lat)
+        {
+            lon = lat = 0;
+            var parts = input.Split(',', ' ', StringSplitOptions.RemoveEmptyEntries);
+            if (parts.Length < 2) return false;
+
+            return double.TryParse(parts[0], NumberStyles.Float, CultureInfo.InvariantCulture, out lon)
+                && double.TryParse(parts[1], NumberStyles.Float, CultureInfo.InvariantCulture, out lat)
+                && lon >= -180 && lon <= 180 && lat >= -90 && lat <= 90;
+        }
+
+        private async Task<PlaceResult> SearchPlaceName(string query)
+        {
+            var connStr = _configuration.GetConnectionString("PostgresConnection");
+            try
+            {
+                await using var conn = new NpgsqlConnection(connStr);
+                await conn.OpenAsync();
+
+                var cmd = new NpgsqlCommand(@"
+            SELECT name, ST_X(way) AS lon, ST_Y(way) AS lat, place
+            FROM planet_osm_point
+            WHERE LOWER(name) ILIKE @q
+            ORDER BY 
+                CASE WHEN place = 'city' THEN 1 ELSE 2 END,
+                name
+            LIMIT 1
+        ", conn);
+
+                cmd.Parameters.AddWithValue("@q", "%" + query.ToLower() + "%");
+
+                await using var reader = await cmd.ExecuteReaderAsync(CommandBehavior.SingleRow);
+                if (await reader.ReadAsync())
+                {
+                    return new PlaceResult
+                    {
+                        Name = reader.GetString(0),
+                        Lon = reader.GetDouble(1),
+                        Lat = reader.GetDouble(2)
+                    };
+                }
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "Error during placename search");
+            }
+
+            return null;
+        }
+
+        private class PlaceResult
+        {
+            public string Name { get; set; }
+            public double Lon { get; set; }
+            public double Lat { get; set; }
+        }
+        [HttpGet("suggest")]
+        public async Task<IActionResult> Suggest([FromQuery] string q)
+        {
+            if (string.IsNullOrWhiteSpace(q)) return BadRequest("Query required");
+
+            var connStr = _configuration.GetConnectionString("PostgresConnection");
+            var results = new List<object>();
+
+            try
+            {
+                await using var conn = new NpgsqlConnection(connStr);
+                await conn.OpenAsync();
+
+                var cmd = new NpgsqlCommand(@"
+            SELECT DISTINCT name
+            FROM planet_osm_point
+            WHERE name ILIKE @q
+            ORDER BY name
+            LIMIT 10", conn);
+
+                cmd.Parameters.AddWithValue("@q", $"{q}%");
+
+                await using var reader = await cmd.ExecuteReaderAsync();
+                while (await reader.ReadAsync())
+                {
+                    results.Add(reader.GetString(0));
+                }
+
+                return Ok(results);
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "Error during autocomplete suggest");
+                return StatusCode(500);
+            }
+        }
+
     }
 }

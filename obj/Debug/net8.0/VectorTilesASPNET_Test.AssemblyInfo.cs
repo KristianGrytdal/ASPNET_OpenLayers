@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("VectorTilesASPNET_Test")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+c660331416c252d632c9609eb9dbde6f0a1a1afc")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+e2b5baf4102fce684a204348976b66369afdd58e")]
 [assembly: System.Reflection.AssemblyProductAttribute("VectorTilesASPNET_Test")]
 [assembly: System.Reflection.AssemblyTitleAttribute("VectorTilesASPNET_Test")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
