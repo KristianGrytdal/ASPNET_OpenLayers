@@ -5,17 +5,16 @@ using Microsoft.Extensions.Configuration;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// ✅ Add CORS Policy (This is the FIX)
 builder.Services.AddCors(options =>
 {
     options.AddPolicy("AllowReactApp",
         policy =>
         {
             policy
-                .WithOrigins("http://localhost:3000") // ✅ Replace with your React frontend URL
+                .WithOrigins("http://localhost:3000")
                 .AllowAnyHeader()
                 .AllowAnyMethod()
-                .AllowCredentials(); // ✅ Allows cookies, auth tokens if needed
+                .AllowCredentials();
         });
 });
 
